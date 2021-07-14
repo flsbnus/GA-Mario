@@ -1,6 +1,7 @@
-#PyQt 기본요소
+#PyQt 타이머 예제
 import sys
 from PyQt5.QtWidgets import QApplication,QWidget
+from PyQt5.QtCore import QTimer
 
 
 class MyApp(QWidget):
@@ -10,8 +11,19 @@ class MyApp(QWidget):
         self.setFixedSize(400,300)
         #창 제목 설정
         self.setWindowTitle('MyApp')
+
+        #타이머 생성
+        self.qtimer=QTimer(self)
+        #타이머에 호출할 함수 연결
+        self.qtimer.timeout.connect(self.timer)
+        # 1(=1000밀리초)초마다 연결된 함수를 실행
+        self.qtimer.start(1000)
+
         #창띄우기
         self.show()
+
+    def timer(self):
+        print('timer')
   #직접실행할때만 실행
 if __name__=='__main__':
     app=QApplication(sys.argv)

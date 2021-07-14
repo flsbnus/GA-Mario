@@ -10,22 +10,25 @@ class MyApp(QWidget):
         self.setFixedSize(300,300)
         #창 제목 설정
         self.setWindowTitle('GA Mario')
-        label_text = QLabel(self)
+        self.label = QLabel(self)
         #창띄우기
         self.show()
     #키를 누를때
     def keyPressEvent(self, event):
         key = event.key()
-        lable=QLabel(self)
-        self.label = QLabel(self)
+        #lable=QLabel(self)
+        #self.label = QLabel(self)
         #self.label.setGeometry(0,0,100,100)
-        self.label.setText(str(key)+ ' release')
+        #self.label.setText(str(key)+ ' release')
         self.label.setGeometry(100, 100, 100, 100)
+        self.label.setText(str(key) + ' release')
         print(str(key)+' press')
 
 
     def keyReleaseEvent(self, event):
         key=event.key()
+        self.label.setGeometry(100, 100, 100, 100)
+        self.label.setText(str(key) + ' press')
         print(str(key)+' release')
 #직접실행할때만 실행
 if __name__=='__main__':

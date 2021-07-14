@@ -25,7 +25,7 @@ class MyApp(QWidget):
         # 선 그리기
         painter.drawLine(0,10,200,100)
 
-        # RGB 색상으로 펜 설정
+        # RGB 색상으로 펜 설정 (테두리색)
         painter.setPen(QPen(QColor.fromRgb(255,0,0),3.0,Qt.SolidLine))
         # 브러쉬 설정 (채우기)
         painter.setBrush(QBrush(Qt.blue))
